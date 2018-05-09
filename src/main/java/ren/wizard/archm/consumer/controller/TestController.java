@@ -30,7 +30,7 @@ public class TestController {
 
     @GetMapping("/rest/echo/{word}/")
     public ResponseEntity<String> testEcho(@PathVariable("word") String word) {
-        return new ResponseEntity<>(word, HttpStatus.OK);
+        return new ResponseEntity<>(providerClient.testEcho(word), HttpStatus.OK);
     }
 
     @GetMapping("/flux/")
@@ -38,9 +38,9 @@ public class TestController {
         return Flux.just(providerClient.testFlux());
     }
 
-    @GetMapping("/flux/echo/{word/}")
+    @GetMapping("/flux/echo/{word}/")
     public Flux<String> testFluxEcho(@PathVariable("word") String word) {
-        return Flux.just(word);
+        return Flux.just(providerClient.testFluxEcho(word));
     }
 
     @GetMapping("/error/")

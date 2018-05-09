@@ -11,12 +11,22 @@ import ren.wizard.archm.consumer.client.ProviderClient;
 public class ProviderClientFallback implements ProviderClient {
     @Override
     public String testGet() {
-        return null;
+        return "error and fall back to default method";
+    }
+
+    @Override
+    public String testEcho(String word) {
+        return "error and fall back to default method";
     }
 
     @Override
     public String testFlux() {
-        return null;
+        return "error and fall back to default method";
+    }
+
+    @Override
+    public String testFluxEcho(String word) {
+        return "error and fall back to default method";
     }
 
     @Override
