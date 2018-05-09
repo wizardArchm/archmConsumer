@@ -54,5 +54,11 @@ public interface ProviderClient {
      */
     @GetMapping("/error/")
     String testError();
+
+    @GetMapping("/test/flux/sleep/")
+    String testFluxSleep();
+
+    @GetMapping("/test/echo/sleep/")
+    String testSleep();
 }
 

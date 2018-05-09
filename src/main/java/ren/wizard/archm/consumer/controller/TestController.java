@@ -47,4 +47,14 @@ public class TestController {
     public ResponseEntity<String> testError() {
         return new ResponseEntity<>(providerClient.testError(), HttpStatus.OK);
     }
+
+    @GetMapping("/rest/sleep/")
+    public ResponseEntity<String> testSleep() {
+        return new ResponseEntity<>(providerClient.testSleep(), HttpStatus.OK);
+    }
+    @GetMapping("/flux/sleep/")
+    public Flux<String> testFluxSleep() {
+        return Flux.just(providerClient.testFluxSleep());
+    }
+
 }

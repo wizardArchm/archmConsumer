@@ -33,4 +33,14 @@ public class ProviderClientFallback implements ProviderClient {
     public String testError() {
         return "error and fall back to default method";
     }
+
+    @Override
+    public String testSleep() {
+        return "error and fall back to default method";
+    }
+
+    @Override
+    public String testFluxSleep() {
+        return "error and fall back to default method";
+    }
 }
