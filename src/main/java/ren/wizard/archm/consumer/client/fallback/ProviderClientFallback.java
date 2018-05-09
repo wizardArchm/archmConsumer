@@ -10,7 +10,7 @@ import ren.wizard.archm.consumer.client.ProviderClient;
 @Component
 public class ProviderClientFallback implements ProviderClient {
     @Override
-    public ResponseEntity<String> testGet() {
+    public String testGet() {
         return null;
     }
 

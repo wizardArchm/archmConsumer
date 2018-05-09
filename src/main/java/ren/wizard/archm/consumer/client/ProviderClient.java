@@ -18,7 +18,7 @@ public interface ProviderClient {
      * @return a string
      */
     @GetMapping("/test/rest/")
-    ResponseEntity<String> testGet();
+    String testGet();
 
     /**
      * test get method

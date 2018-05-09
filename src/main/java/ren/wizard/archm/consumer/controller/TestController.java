@@ -25,7 +25,7 @@ public class TestController {
 
     @GetMapping("/rest")
     public ResponseEntity<String> testGet() {
-        return providerClient.testGet();
+        return new ResponseEntity<>(providerClient.testGet(), HttpStatus.OK);
     }
 
     @GetMapping("/rest/echo/{word}")
