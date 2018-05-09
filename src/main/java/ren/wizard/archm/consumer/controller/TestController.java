@@ -23,22 +23,22 @@ public class TestController {
         this.providerClient = providerClient;
     }
 
-    @GetMapping("/rest")
+    @GetMapping("/rest/")
     public ResponseEntity<String> testGet() {
         return new ResponseEntity<>(providerClient.testGet(), HttpStatus.OK);
     }
 
-    @GetMapping("/rest/echo/{word}")
+    @GetMapping("/rest/echo/{word}/")
     public ResponseEntity<String> testEcho(@PathVariable("word") String word) {
         return new ResponseEntity<>(word, HttpStatus.OK);
     }
 
-    @GetMapping("/flux")
+    @GetMapping("/flux/")
     public Flux<String> testFluxGet() {
         return Flux.just(providerClient.testFlux());
     }
 
-    @GetMapping("/flux/echo/{word}")
+    @GetMapping("/flux/echo/{word/}")
     public Flux<String> testFluxEcho(@PathVariable("word") String word) {
         return Flux.just(word);
     }
