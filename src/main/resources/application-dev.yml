@@ -1,0 +1,13 @@
+server:
+  port: 1985
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+        defaultZone: http://localhost:1984/eureka/
+feign:
+  hystrix:
+    enabled: true
