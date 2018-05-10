@@ -9,6 +9,9 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
+import ren.wizard.archm.consumer.entity.ArchmTestEntityOneEntity;
+
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -31,6 +34,16 @@ public class ArchmTestEntityOneRepositoryTest {
 
     @Test
     public void testRepository() {
-        assertTrue(repository.findAll().size() > 0);
+        assertEquals(1, repository.findAll().size());
+    }
+
+    @Test
+    public void testInsert() {
+        ArchmTestEntityOneEntity entityOneEntity = new ArchmTestEntityOneEntity();
+        entityOneEntity.setThisIsAString("asd");
+        repository.save(entityOneEntity);
+        List<ArchmTestEntityOneEntity> res = repository.findAll();
+        assertNotNull(res);
+        assertTrue(res.size() > 1);
     }
 }

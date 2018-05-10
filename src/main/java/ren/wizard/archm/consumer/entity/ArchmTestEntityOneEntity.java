@@ -1,6 +1,10 @@
 package ren.wizard.archm.consumer.entity;
 
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 import javax.persistence.*;
+import java.sql.Timestamp;
 
 /**
  * @author uyangjie
@@ -10,6 +14,8 @@ import javax.persistence.*;
 public class ArchmTestEntityOneEntity {
     private int id;
     private String thisIsAString;
+    private Timestamp createdTime;
+    private Timestamp updatedTime;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -50,5 +56,27 @@ public class ArchmTestEntityOneEntity {
         int result = id;
         result = 31 * result + (thisIsAString != null ? thisIsAString.hashCode() : 0);
         return result;
+    }
+
+    @Basic
+    @Column(name = "created_time", nullable = true, updatable = false)
+    @CreationTimestamp
+    public Timestamp getCreatedTime() {
+        return createdTime;
+    }
+
+    public void setCreatedTime(Timestamp createdTime) {
+        this.createdTime = createdTime;
+    }
+
+    @Basic
+    @Column(name = "updated_time", nullable = true)
+    @UpdateTimestamp
+    public Timestamp getUpdatedTime() {
+        return updatedTime;
+    }
+
+    public void setUpdatedTime(Timestamp updatedTime) {
+        this.updatedTime = updatedTime;
     }
 }
