@@ -1,0 +1,1 @@
+INSERT INTO archm_test_entity_one (id, this_is_a_string) VALUES (1, 'test');

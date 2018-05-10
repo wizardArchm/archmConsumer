@@ -1,0 +1,24 @@
+server:
+  port: 1985
+
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+        defaultZone: http://localhost:1984/eureka/
+
+feign:
+  hystrix:
+    enabled: true
+
+spring:
+  datasource:
+    url: jdbc:h2:mem:db_users;MODE=postgreSQL
+    driver-class-name: org.h2.Driver
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: validate
