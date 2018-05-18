@@ -30,6 +30,7 @@ ext {
 }
 
 dependencies {
+    compile project(":providercontract")
     // https://mvnrepository.com/artifact/javax.xml.bind/jaxb-api
     compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.0'
 	compile('org.springframework.boot:spring-boot-starter-web-services')

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import reactor.core.publisher.Flux;
+import ren.wizard.archm.consumer.client.LibClient;
 import ren.wizard.archm.consumer.client.ProviderClient;
 
 /**
@@ -17,6 +18,8 @@ import ren.wizard.archm.consumer.client.ProviderClient;
 @RequestMapping("/test/")
 public class TestController {
     private final ProviderClient providerClient;
+    @Autowired
+    private LibClient libClient;
 
     @Autowired
     public TestController(ProviderClient providerClient) {
@@ -58,4 +61,9 @@ public class TestController {
         return Flux.just(providerClient.testFluxSleep());
     }
 
+    @GetMapping("/lib/")
+    public String testLibGet() {
+        return libClient.testLibGet();
+    }
 }
+
